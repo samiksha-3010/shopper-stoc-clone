@@ -5,6 +5,7 @@ import Home from './Component/Home';
 import Register from './Component/Register';
 import Login from './Component/Login';
 import Navbar from './Component/Navbar';
+import Footer from './Component/Footer';
 
 
 
@@ -21,6 +22,7 @@ function App() {
       <Route exact path='login'element={<Login/>}/>
       <Route exact path='/'element={<Home/>}/>
     </Routes>
+    <Footer/>
    
 
       

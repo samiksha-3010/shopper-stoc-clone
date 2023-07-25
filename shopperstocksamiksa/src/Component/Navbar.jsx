@@ -3,9 +3,7 @@ import './Navbar.css'
 
 const Navbar = () => {
 
-  const router = useNavigate()
-  function togo() {
-      router('/Register')
+ 
   return (
     <div className='navbar'>
         <div className='store-txt'>

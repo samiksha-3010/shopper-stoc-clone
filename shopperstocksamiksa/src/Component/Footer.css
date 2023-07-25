@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.footwr-1{
+    width: 100%;
+    height: 300px;
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-around;
+
+}
+.footwr-1>div{
+    /* border: 1px solid black; */
+    width: 22%;
+    margin: 30px;
+
+}
+.footwr-1>div>b{
+    margin-top: 10px;
+    font-size: 12px;
+}
+.txt{
+    width: 100%;
+    height: 200px;
+    border: 1px solid black;
+
+}
+
+.txt2>p{
+    color: red;
+    font-size: 15px;
+
+
+
+}
+.txt2>p>b{
+    color: black;
+
+
+
+}
