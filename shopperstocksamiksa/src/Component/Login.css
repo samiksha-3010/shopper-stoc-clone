@@ -1,0 +1,21 @@
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+.Login{
+    width: 30%;
+    height: 500px;
+    border: 1px solid black;
+    margin: auto;
+}
+.Login>h2{
+    text-align: center;
+}
+.login-page{
+    width: 70%;
+    border: 1px solid black;
+    margin: auto;
+}
+
+

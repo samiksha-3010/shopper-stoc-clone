@@ -4,6 +4,22 @@ import './Home.css'
 const Home = () => {
   return (
     <div className='homePage'>
+      <div className='CATEGORIES'>
+        <h4>CATEGORIES</h4>
+        <h4> LUXE</h4>
+        <h4>BARGAINS</h4>
+        <h4>STYLE HUB</h4>
+      </div>
+      <div className='cATEGORIES-brand' >
+        <h4>Mens</h4>
+        <h4>Womens</h4>
+        <h4>Beauty</h4>
+        <h4>Watch</h4>
+        <h4>Kids</h4>
+        <h4>Home stock</h4>
+        <h4>Gifts</h4>
+        <h4>Brand</h4>
+      </div>
      
       <div className='image-first'>
         <img src='https://sslimages.shoppersstop.com/sys-master/root/h47/hda/30416999219230/Strip-Banner-Web--2023-07--17-new-hp-page-flat50.jpg'/>

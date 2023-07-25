@@ -22,7 +22,7 @@ const Register = () => {
             array.push(userDataobj);
             localStorage.setItem('User',JSON.stringify(array))
             alert("registration succesfull...")
-            router('./login')
+            router('/login')
         }else{
             alert("plese fill all field")
         }

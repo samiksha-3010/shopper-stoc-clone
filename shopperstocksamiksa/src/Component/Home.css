@@ -7,10 +7,24 @@ body {
     margin-top: 6%;
 }
 .homePage{
-  
     width: 100%;
     border: 1px solid black;
-  
+}
+.CATEGORIES{
+    width: 60%;
+    margin: auto;
+    /* border: 1px solid black; */
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+}
+.cATEGORIES-brand{
+    width: 80%;
+    margin: auto;
+    /* border: 1px solid black; */
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
 }
 .image-first{
     width: 85%;

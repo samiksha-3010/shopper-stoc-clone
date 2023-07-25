@@ -22,11 +22,7 @@ const Footer = () => {
         <b>STORE LOCATOR</b><br/>
         <b>CAREERS
 SITEMAP</b><br/>
-
-
 </div>
-
-
 
         <div> <u><b>POLICIES</b></u>
         <b>  TERMS OF USE</b><br/>
@@ -60,4 +56,4 @@ SITEMAP</b><br/>
   )
 }
 
-export default Footer
+export default Footer;
