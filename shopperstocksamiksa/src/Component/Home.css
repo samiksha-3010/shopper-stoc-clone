@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+.homePage{
+  
+    width: 100%;
+    border: 1px solid black;
+}
+.image-first{
+    margin-top: 100%;
+    width: 85%;
+    border: 1px solid black;
+    height: 100px;
+}

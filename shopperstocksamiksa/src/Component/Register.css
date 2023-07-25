@@ -5,7 +5,6 @@
 }
 .first-div{
     width: 25%;
-    height: 600px;
     border: 2px solid black;
     margin: auto;
 }
@@ -17,8 +16,55 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='139' height
 background-color: black;
 }
 .register-div{
-    border: 1px solid red;
-     width: 80%;
+    /* border: 1px solid red; */
+     width: 70%;
      padding-top: 20px;
      margin: auto;
+}
+/* .register-div>input{
+  outline: none;
+  border: none;
+} */
+
+.submit{
+  width: 70%;
+  height: 48px;
+  border: 1px solid black;
+  text-align: center;
+  margin-top: 30px;
+  margin: auto;
+  background-color: black;
+  color: white;
+}
+.submit>input{
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+.login{
+  width: 60%;
+  /* border:1px solid black; */
+  padding-top: 20px;
+  margin: auto;
+}
+.login>p{
+  padding-bottom: 20px;
+}
+.login>img{
+  width: 20%;
+  height: 50px;
+  /* border: 1px solid black; */
+  border-radius: 100px;
+  margin: auto;
+
+}
+.sign-up{
+ width: 80%;
+ padding-top: 20px;
+ margin: auto;
+
+
+}
+.sign-up>p>span{
+  color: red;
 }
