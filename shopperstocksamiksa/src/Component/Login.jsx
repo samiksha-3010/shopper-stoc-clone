@@ -66,20 +66,22 @@ const Login = () => {
     if(userData.email && userData.password){
       const user = JSON.parse (localStorage.getItem("user"))
       var flag = false
-      for(var i=0;i < user.length;i++){
+      for(var i=0;i <user.length;i++){
       if(  user[i].email == userData.email && user [i]. password == userData.password ){
         flag = true
+        alert ("login sussesfull...")
+        setUserData({email: "",password: ""})
       }
       } 
       if (flag == false){
         return alert ("plese chek cerdedentails")
       }
-      alert ("login sussesfull...")
-      setUserData({email: "",password: ""})
+    
     }else {
       alert ("plese fill all field")
-   }
+   
   }
+}
  
   return (
     <div>
