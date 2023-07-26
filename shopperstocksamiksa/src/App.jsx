@@ -6,6 +6,7 @@ import Register from './Component/Register';
 import Login from './Component/Login';
 import Navbar from './Component/Navbar';
 import Footer from './Component/Footer';
+import MultipleProduct from './Component/MultipleProduct';
 
 
 
@@ -18,6 +19,7 @@ function App() {
     <div>
       <Navbar/>
     <Routes>
+      <Route exact path='multipleproduct'element={<MultipleProduct/>}/>
       <Route exact path='/register'element={<Register/>}/>
       <Route exact path='/login'element={<Login/>}/>
       <Route exact path='/'element={<Home/>}/>
