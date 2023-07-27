@@ -33,7 +33,6 @@
 
 import React,{useEffect, useState} from 'react'
 import './MultipleProduct.css'
-// import { json } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const MultipleProduct = ()=> {
@@ -50,16 +49,15 @@ const MultipleProduct = ()=> {
     },[])
     const redirect = (id) =>{
         console.log(id,"-id")
-        // alert ("working..")
+     
         router (`/product/${id}`)
+        // router( "./singleproduct/id")
     }
     
   return (
    
 
     <div className='parent-div'>
-      
-
 <div className='Filter' >
   <div className='filter-div'>
     <div className='box'>
@@ -89,9 +87,6 @@ const MultipleProduct = ()=> {
     
 
   </div>
-  
-  
-
 </div>
         {/* <h2>Multiple product</h2> */}
     { products.length ?

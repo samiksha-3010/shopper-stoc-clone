@@ -20,8 +20,8 @@ function App() {
     <div>
       <Navbar/>
     <Routes>
-      <Route exact path='singleproduct'element={<SingleProduct/>}/>
-      <Route exact path='multipleproduct'element={<MultipleProduct/>}/>
+      <Route exact path='/singleproduct/id'element={<SingleProduct/>}/>
+      <Route exact path='/multipleproduct'element={<MultipleProduct/>}/>
       <Route exact path='/register'element={<Register/>}/>
       <Route exact path='/login'element={<Login/>}/>
       <Route exact path='/'element={<Home/>}/>
