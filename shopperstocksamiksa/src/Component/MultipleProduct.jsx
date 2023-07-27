@@ -64,27 +64,97 @@ const MultipleProduct = ()=> {
       <h4>CATEGORIES</h4>
       <i class="fa-solid fa-chevron-down"></i>
     </div>
-
     <div className='txt'>
-    <i class="fa-solid fa-chevron-down"></i>
+      <div className='left'>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      </div>
+     <div className='right'>
      <b>ACCESSORIES (39)</b>
-    </div>
-    <div className='txt'>
-    <i class="fa-solid fa-chevron-down"></i>
      <b>INNERWEAR  (39)</b>
-    </div>
-    <div className='txt'>
-    <i class="fa-solid fa-chevron-down"></i>
      <b>JACKETS  (1) (39)</b>
+     <b>shoes(39)</b>
+     </div>
+
+    </div>
+   
+    <div className='box'>
+      <h4>SUB-CATEGORIES</h4>
+      <i class="fa-solid fa-chevron-down"></i>
     </div>
     <div className='txt'>
-    <i class="fa-solid fa-chevron-down"></i>
-     <b>shoes(39)</b>
+      <div className='left'>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      </div>
+     <div className='right'>
+     <b> BOXERS  (12) (39)</b>
+     <b>BRIEFS & TRUNKS </b>
+     <b>CASUAL SHIRTS  (15)</b>
+     <b>FORMAL SHIRTS  (189)</b>
+     </div>
+
     </div>
+
+
+    <div className='box'>
+      <h4>Offers</h4>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div className='txt'>
+      <div className='left'>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      </div>
+     <div className='right'>
+     <b>FLAT 70% OFF  (122)</b>
+     <b>FLAT 50% OFF  (198) </b>
+     <b>FLAT 30% OFF  (1)</b>
+     <b>FLAT RS. 699/-  (151)</b>
+     <b>FLAT 70% OFF  (83)</b>
+     <b>FLAT RS.499/-  (118)</b>
+     </div>
+
+    </div>
+    <div className='box'>
+      <h4>Size</h4>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+    <div className='txt'>
+      <div className='left'>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      <i class="fa-solid fa-chevron-down"></i><br/>
+      </div>
+     <div className='right'>
+     <b>28  (5)</b>
+     <b>30  (97)</b>
+     <b>34  (88)</b>
+     <b>36  (73)</b>
+     <b>36  (73)</b>
+     <b>36  (73)</b>
+     </div>
+
+    </div>
+    
+    <div className='colour-div'>
+      <div></div>
+
+     
+    </div>
+
+  
   
 
 
-    
+
 
   </div>
 </div>

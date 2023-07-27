@@ -21,7 +21,8 @@ const SingleProduct = () => {
       setsingleproduct(result)
     }
   },[id,products])
-  console.log(singleproduct,"-setsingleproduct")
+  
+  // console.log(singleproduct,"-setsingleproduct")
   return (
     <div className='first-div'>
     <div className='second-div'>

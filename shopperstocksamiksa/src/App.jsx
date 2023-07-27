@@ -26,7 +26,7 @@ function App() {
       <Route exact path='/login'element={<Login/>}/>
       <Route exact path='/'element={<Home/>}/>
     </Routes>
-    {/* <Footer/> */}
+    <Footer/>
    
 
       
