@@ -1,11 +1,17 @@
 import React from 'react'
 import './Home.css'
+import { useNavigate } from 'react-router-dom'
+
 
 const Home = () => {
+
+const router = useNavigate();
+
+
   return (
     <div className='homePage'>
       <div className='CATEGORIES'>
-        <h4>CATEGORIES</h4>
+        <h4 onClick={() => router("/multipleproduct")}>CATEGORIES</h4>
         <h4> LUXE</h4>
         <h4>BARGAINS</h4>
         <h4>STYLE HUB</h4>

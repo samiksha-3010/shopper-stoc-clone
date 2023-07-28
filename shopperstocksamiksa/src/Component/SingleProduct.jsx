@@ -12,6 +12,7 @@ const SingleProduct = () => {
     fetch('https://fakestoreapi.com/products')
     .then(res => res.json())
     .then(json=>SetProducts (json))
+    // .then (json => console.log(json))            
 
   },[])
   useEffect(() =>{
@@ -24,7 +25,7 @@ const SingleProduct = () => {
   
   // console.log(singleproduct,"-setsingleproduct")
   return (
-    <div className='first-div'>
+    <div className='first-div' key={id}>
     <div className='second-div'>
       <img src={SingleProduct.image}/>
     </div>

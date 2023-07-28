@@ -1,35 +1,3 @@
-// import React, { useEffect, useState } from 'react'
-// import './MultipleProduct.css'
-
-// const MultipleProduct = () => {
-//   const [product, setProduct] = useState([]);
-//   useEffect (() =>{
-//     fetch('https://fakestoreapi.com/products')
-//             .then(res=>res.json())
-//             .then(json=>console.log(json))
-         
-//   },[])
-//   return (
-//     <div className='parent-div'>
-//       <h2>MultipleProduct</h2>
-//       <div>
-//       {MultipleProduct.map((pro) =>(
-//         <div>
-//            <img src={pro.image} />
-//               <h4 >Name : {pro.title}</h4 >
-//                 <h3 >Price : {pro.price}Rs.</h3>
-//           </div>
-//       ))}
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default MultipleProduct;
-
-
-
-
 
 import React,{useEffect, useState} from 'react'
 import './MultipleProduct.css'
