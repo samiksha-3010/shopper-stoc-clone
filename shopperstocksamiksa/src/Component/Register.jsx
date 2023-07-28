@@ -29,9 +29,9 @@ const Register = () => {
 
     }
   return (
-    <div className='first-div'>
+    <div className='first-div-navbar'>
    <div className='image-div'>
-    {/* <h2>Login/Sigh.in</h2> */}
+  <p>Login/sign/up</p>
    
    </div>
        <div className=' register-div'>
