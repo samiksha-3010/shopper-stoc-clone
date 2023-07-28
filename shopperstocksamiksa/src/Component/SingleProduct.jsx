@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 
 const SingleProduct = () => {
   const [products,SetProducts] = useState([]);
-  const [singleproduct,setsingleproduct] = useState({})
+  const [SingleProduct,setsingleproduct] = useState({})
   const { id } = useParams();
   // console.log(products,"-setproducts")
   useEffect (() =>{
@@ -31,6 +31,10 @@ const SingleProduct = () => {
     <div className='third-div'>
     <h1>Name :{SingleProduct.title}</h1>
      <h2>Price : {SingleProduct.price}</h2>
+
+
+
+
      <div className='four-div'>
      <p>Find your perfect match! <u><b>Ask your Expert Advisor</b></u></p>
      <b>Size</b>

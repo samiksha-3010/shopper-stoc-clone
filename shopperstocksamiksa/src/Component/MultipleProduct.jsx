@@ -1,5 +1,5 @@
 // import React, { useEffect, useState } from 'react'
-// import './Multiple.css'
+// import './MultipleProduct.css'
 
 // const MultipleProduct = () => {
 //   const [product, setProduct] = useState([]);
@@ -50,8 +50,8 @@ const MultipleProduct = ()=> {
     const redirect = (id) =>{
         console.log(id,"-id")
      
-        router (`/product/${id}`)
-        // router( "./singleproduct/id")
+        router (`/singleproduct/${id}`)
+       
     }
     
   return (
@@ -147,23 +147,15 @@ const MultipleProduct = ()=> {
     <div className='colour-div'>
       <div></div>
 
-     
     </div>
-
-  
-  
-
-
-
-
   </div>
 </div>
-        {/* <h2>Multiple product</h2> */}
+      
     { products.length ?
          <div className='parent-second'> 
           { products.map((pro) =>(
           
-              <div onClick={ ()=> redirect (pro.id)}  style={{  cursor: 'pointer', width: "18%", border: "2px solid black", height: '450px', marginBottom: "30px" }}>
+              <div onClick={()=> redirect (pro.id)}  style={{  cursor: 'pointer', width: "18%", border: "2px solid black", height: '450px', marginBottom: "30px" }}>
               <img style={{ width: "80%", height: "260px", marginLeft: "10%", marginTop: "25px" }} src={pro.image} />
               <h4 style={{ marginLeft: "20px" , color: 'red' }} >Name : {pro.title}</h4 >
               <h3 style={{ marginLeft: "20px" , color: 'red'}}>Price : {pro.price}Rs.</h3>
