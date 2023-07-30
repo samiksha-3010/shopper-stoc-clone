@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { Router, useNavigate } from "react-router-dom";
 import "./Login.css";
 const Login = () => {
@@ -36,18 +37,22 @@ const Login = () => {
   };
   return (
     <div className="Login">
-      <h2>Login</h2>
-      <div className="login-page">
+      
+      <div className='image-div'>
+  <p>Login/sign/up</p>
+   
+   </div>
+      <div className=' login-div'>
         <form onSubmit={handlesubmit}>
-          <label>Email</label>
+          <label className="label">Email</label>
           <br />
-          <input type="email " name="email"  onChange={handlechenge} />
+          <input className="input-div" type="email " name="email"  onChange={handlechenge} />
           <br />
-          <label>Password</label>
+          <label className="label">Password</label>
           <br />
-          <input type="Password" name="password"  onChange={handlechenge} />
+          <input className="input-div"  type="Password" name="password"  onChange={handlechenge} />
           <br />
-          <input type="submit" value="login" />
+          <input className="submit" type="submit" value="login" />
         </form>
       </div>
     </div>
