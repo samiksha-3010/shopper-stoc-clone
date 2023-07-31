@@ -17,7 +17,8 @@ const Register = () => {
             const userDataobj={
                 name:userData.name,
                 email:userData.email,
-                password:userData.password
+                password:userData.password,
+                cart:[]
             };
             array.push(userDataobj);
             localStorage.setItem('User',JSON.stringify(array))

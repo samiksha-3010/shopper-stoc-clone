@@ -25,7 +25,7 @@ const Navbar = () => {
           onClick={() => router("/register")}
           class="fa-solid fa-user fa-xl"
         ></i>
-        <i class="fa-solid fa-bag-shopping fa-xl"></i>
+        <i  onClick={() => router("/cart")}class="fa-solid fa-bag-shopping fa-xl"></i>
       </div>
     </div>
   );

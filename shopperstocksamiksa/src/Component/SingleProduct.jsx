@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import './SingleProduct.css'
-import { useParams } from 'react-router-dom'
+import {  useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 const SingleProduct = () => {
+  
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [currentUserEmail, setCurrentUserEmail] = useState("");
   const [products,SetProducts] = useState([]);
   const [SingleProduct,setsingleproduct] = useState({})
   const { id } = useParams();
+  const router =(useNavigate)();
   // console.log(products,"-setproducts")
   useEffect (() =>{
     fetch('https://fakestoreapi.com/products')
@@ -24,6 +29,31 @@ const SingleProduct = () => {
   },[id,products])
   
   // console.log(singleproduct,"-setsingleproduct")
+
+  useEffect(()=>{
+    var user = JSON.parse(localStorage.getItem("Current-user"));
+    // console.log(user,"usr")
+    if(user){
+      setIsUserLoggedIn(true);
+      setCurrentUserEmail(user.email)
+    }
+  },[])
+  
+    function addCart(){
+
+      if(setIsUserLoggedIn){
+        const user = JSON.parse(localStorage.getItem("User"))
+        for(var i=0; i < user.length; i++ ){
+          user[i].cart.push(SingleProduct);
+          localStorage.setItem("User",JSON.stringify(user));
+          break;
+        
+      }
+      alert("Product add to sucessfully cart...")
+    } else {
+      alert ("you can not add product before login")
+    }
+}
   return (
     <div className='first-div' key={id}>
     <div className='second-div'>
@@ -32,16 +62,14 @@ const SingleProduct = () => {
     <div className='third-div'>
     <h1>Name :{SingleProduct.title}</h1>
      <h2>Price : {SingleProduct.price}</h2>
-
-
-
-
+    F
      <div className='four-div'>
      <p>Find your perfect match! <u><b>Ask your Expert Advisor</b></u></p>
      <b>Size</b>
      <p>Size ( 5+ Available )</p>
      <div></div>
-     <button>Add to cart</button>
+     <button onClick={addCart}>Add to cart</button>
+     {/* <button>Add to cart</button> */}
      </div>
      <div className='div'>7 days easy return and exchange applicable for this item</div>
    

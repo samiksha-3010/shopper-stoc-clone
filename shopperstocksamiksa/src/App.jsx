@@ -31,7 +31,7 @@ function App() {
       <Route exact path='/profile'element={<Profile/>}/>
       
     </Routes>
-    <Footer/>
+    {/* <Footer/> */}
    
 
       
