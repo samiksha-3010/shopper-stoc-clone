@@ -13,7 +13,7 @@ const Navbar = () => {
         <p> BARGAINS</p>
       </div>
       <div className="shooper-stop">
-        <p onClick={() =>router("/") }>SHOOPER STOP</p>
+        <p onClick={() =>router("/cart") }>SHOOPER STOP</p>
       </div>
       <div className="serch-box">
         <input type="search" placeholder="search product & brands" />
