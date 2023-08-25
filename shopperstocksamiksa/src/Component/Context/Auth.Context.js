@@ -1,55 +1,50 @@
-import { createContext, useEffect, useReducer } from "react";
+
+// import axios from "axios";
+// import { createContext, useEffect, useReducer } from "react";
+
+// export const AuthContext = createContext();
+
+// const initialState = { user: null };
+
+// const reducer = (state, action) => {
+//     switch (action.type) {
+//         case 'LOGIN':
+//             return { ...state, user: action.payload }
+//         case 'LOGOUT':
+//             return { ...state, user: null }
+//         default:
+//             return state
+//     }
+// }
 
 
-export const AuthContext = createContext();
+//   export const AuthProvider = ({ children }) => {
+//     const [state, dispatch] = useReducer(reducer, initialState)
 
-const initialState = { user: null };
+//     useEffect(() => {
+//         async function getCurrentUserData() {
+//             var token = JSON.parse(localStorage.getItem("token"));
+//             const response = await axios.post("http://localhost:8000/get-current-user", { token });
+//             if (response.data.success) {
+//                 dispatch({
+//                     type: "LOGIN",
+//                     payload: response.data.user
+//                 })
+//             } else {
+//                 dispatch({
+//                     type: "LOGOUT"
+//                 });
+//             }
+//         }
+//         getCurrentUserData();
+//     }, [])
 
-function reducer(state, action) { 
-    switch (action.type) {
-        case "login":
-            return { user: action.payload } // re-assign
-        case "logout":
-            return { user: null } // re - assign
-        default:
-            return state;
-    }
-}
+//     return (
+//         <AuthContext.Provider value={{ state, dispatch }}>
+//             {children}
+//         </AuthContext.Provider>
+//     )
 
+// }
 
-const AuthProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(reducer, initialState);
-
-    const login = (userData) => {
-
-        localStorage.setItem("Current-user", JSON.stringify(userData))
-        dispatch({
-            type: 'login',
-            payload: userData
-        })
-    }
-
-    const logout = () => {
-
-        localStorage.removeItem("Current-user");
-        dispatch({ type: 'logout' })
-    }
-
-    useEffect(() => {
-        const isUserPresent = JSON.parse(localStorage.getItem("Current-user"));
-        if (isUserPresent) {
-            dispatch({
-                type: 'login',
-                payload: isUserPresent
-            })
-        }
-    }, [])
-
-    return (
-        <AuthContext.Provider value={{ state, login, logout }} >
-            {children}
-        </AuthContext.Provider>
-    )
-}
-
-export default AuthProvider;
+// export default AuthContext;
