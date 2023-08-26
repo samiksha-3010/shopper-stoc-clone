@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import './Register.css'
 import { useNavigate } from 'react-router-dom'
+import axios from "axios"
+import toast from "react-hot-toast"
 
 const Register = () => {
-    const [userData, setUserData] = useState({name: "",email:"",password: "",ConfirmPassword:""})
+    const [userData, setUserData] = useState({name: "",email:"",password: "",ConfirmPassword:"",role:"Buyer"})
     const router = useNavigate ()
     const handleChenge = (event)=>{
     setUserData({... userData,[event.target.name]: event.target.value});
@@ -37,7 +39,7 @@ const Register = () => {
 
     const handleSubmit = async (event) => {
       event.preventDefault();
-      if (userData.name && userData.email && userData.password && userData.confirmpassword && userData.role) {
+      if (userData.name && userData.email && userData.password && userData.ConfirmPassword && userData.role) {
           if (userData.password === userData.ConfirmPassword) {
               const response = await axios.post("http://localhost:8000/register", { userData });
               if (response.data.success) {
@@ -68,8 +70,8 @@ const Register = () => {
             <input value={userData.name} type= 'text'name='name' onChange={handleChenge}/><br/>
             <select onChange={selectRole }>
               <lable>Role</lable><br/>
-              <option value={Byuer}>Buyer</option>
-              <option value={Seller}>Seller</option>+
+              <option >Buyer</option>
+              <option>Seller</option>+
             </select><br/>
             <lable>Email</lable><br/>
             <input value={userData.email} type='email' name='email'onChange={handleChenge}/><br/>

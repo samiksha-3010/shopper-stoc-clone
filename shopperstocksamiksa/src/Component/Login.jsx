@@ -1,8 +1,12 @@
-import React, { useState } from "react";
-
+import React, { useContext, useState } from "react";
+import axios from "axios";
 import { Router, useNavigate } from "react-router-dom";
 import "./Login.css";
+import { toast } from "react-hot-toast";
+import AuthContext from "./Context/Auth.Context";
+
 const Login = () => {
+  const {state , dispatch} = useContext(AuthContext)
   const [userData, setUserData] = useState({ email: "", password: "" });
   const router = useNavigate();
   const handlechenge = (event) => {

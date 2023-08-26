@@ -1,10 +1,8 @@
 import express from 'express';
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
-// import cors from 'cors';
 import cors from "cors"
-// import { Login, Register, getCurrentUser } from './controolers/User.Controolers.js';
-import Register, { Login, getCurrentUser } from './Controolers/User.Controolers.js';
+import  { Login, Register, getCurrentUser } from './Controolers/User.Controolers.js';
 
 
 const app = express();
