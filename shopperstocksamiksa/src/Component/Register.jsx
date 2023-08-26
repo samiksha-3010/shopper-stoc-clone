@@ -3,32 +3,58 @@ import './Register.css'
 import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
-    const [userData, setUserData] = useState({name: "",email:"",password: ""})
+    const [userData, setUserData] = useState({name: "",email:"",password: "",ConfirmPassword:""})
     const router = useNavigate ()
     const handleChenge = (event)=>{
     setUserData({... userData,[event.target.name]: event.target.value});
     console.log(userData,"-setUserData")
     }
 
-    const handleSubmit = (event) =>{
-        event.preventDefault()
-        if(userData.name && userData.email && userData.password){
-            const array  =  JSON.parse(localStorage.getItem("User"))|| []
-            const userDataobj={
-                name:userData.name,
-                email:userData.email,
-                password:userData.password,
-                cart:[]
-            };
-            array.push(userDataobj);
-            localStorage.setItem('User',JSON.stringify(array))
-            alert("registration succesfull...")
-            router('/login')
-        }else{
-            alert("plese fill all field")
-        }
+    function selectRole (event){
+      setUserData({...userData,["role"]: event.target.value})
+      }
 
-    }
+
+
+    // const handleSubmit = (event) =>{
+    //     event.preventDefault()
+    //     if(userData.name && userData.email && userData.password && userData.ConfirmPassword){
+    //         const array  =  JSON.parse(localStorage.getItem("User"))|| []
+    //         const userDataobj={
+    //             name:userData.name,
+    //             email:userData.email,
+    //             password:userData.password,
+    //             cart:[]
+    //         };
+    //         array.push(userDataobj);
+    //         localStorage.setItem('User',JSON.stringify(array))
+    //         alert("registration succesfull...")
+    //         router('/login')
+    //     }else{
+    //         alert("plese fill all field")
+    //     }
+    // }
+
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+      if (userData.name && userData.email && userData.password && userData.confirmpassword && userData.role) {
+          if (userData.password === userData.ConfirmPassword) {
+              const response = await axios.post("http://localhost:8000/register", { userData });
+              if (response.data.success) {
+                  setUserData({ name: "", email: "", password: "", confirmpassword: "", role: "Buyer" })
+                  router('/login')
+                  toast.success(response.data.message)
+              } else {
+                  toast.error(response.data.message)
+              }
+  
+          } else {
+              toast.error("Password and Confirm Password not Matched.")
+          }
+      } else {
+          toast.error("All fields are mandtory.")
+      }
+  }
   return (
     <div className='first-div-navbar'>
    <div className='image-div'>
@@ -39,11 +65,18 @@ const Register = () => {
        <h2>Register</h2>
         <form onSubmit={ handleSubmit}>
             <lable>Name</lable><br/>
-            <input type= 'text'name='name' onChange={handleChenge}/><br/>
+            <input value={userData.name} type= 'text'name='name' onChange={handleChenge}/><br/>
+            <select onChange={selectRole }>
+              <lable>Role</lable><br/>
+              <option value={Byuer}>Buyer</option>
+              <option value={Seller}>Seller</option>+
+            </select><br/>
             <lable>Email</lable><br/>
-            <input type='email' name='email'onChange={handleChenge}/><br/>
+            <input value={userData.email} type='email' name='email'onChange={handleChenge}/><br/>
             <lable>Password</lable><br/>
-            <input type='password'name='password' onChange={handleChenge}/><br/>
+            <input value={userData.password} type='password'name='password' onChange={handleChenge}/><br/>
+            <lable>Password</lable><br/>
+            <input value={userData.ConfirmPassword} type='password'name='pConfirmPassword' onChange={handleChenge}/><br/>
           <div className='submit'>  <input type='submit' value= 'Register'/></div>
 
         </form>

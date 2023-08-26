@@ -9,32 +9,60 @@ const Login = () => {
     setUserData({ ...userData, [event.target.name]: event.target.value });
   };
 
-  const handlesubmit = (event) => {
-    event.preventDefault();
-    if (userData.email && userData.password) {
-      const user = JSON.parse(localStorage.getItem("User"));
-      var flag = false;
-      for (var i = 0; i < user.length; i++) {
-        if (
-          user[i].email == userData.email &&
-          user[i].password == userData.password
-        ) {
-          flag = true;
-          localStorage.setItem("Current-user", JSON.stringify(user));
-          alert("login succesfull....");
-          setUserData({ email: "", password: "" });
-          router("/");
-        }
-      }
-        if (flag == false) {
-          return alert("please check credentails.");
+  // const handlesubmit = (event) => {
+  //   event.preventDefault();
+  //   if (userData.email && userData.password) {
+  //     const user = JSON.parse(localStorage.getItem("User"));
+  //     var flag = false;
+  //     for (var i = 0; i < user.length; i++) {
+  //       if (
+  //         user[i].email == userData.email &&
+  //         user[i].password == userData.password
+  //       ) {
+  //         flag = true;
+  //         localStorage.setItem("Current-user", JSON.stringify(user));
+  //         alert("login succesfull....");
+  //         setUserData({ email: "", password: "" });
+  //         router("/");
+  //       }
+  //     }
+  //       if (flag == false) {
+  //         return alert("please check credentails.");
           
      
-      }
+  //     }
+  //   } else {
+  //     alert("please fill all field....");
+  //   }
+  // };
+
+  const handlesubmit = async (event) => {
+    event.preventDefault();
+    if ( userData.email && userData.password) {
+      
+            const response = await axios.post("http://localhost:8000/login", { userData });
+            if (response.data.success) {
+            
+
+            dispatch({
+              type: 'LOGIN',
+              payload: response.data.user
+          })
+          localStorage.setItem("token", JSON.stringify(response.data.token))
+                setUserData({ email: "", password: "" })
+                router('/')
+                toast.success(response.data.message)
+            } else {
+                toast.error(response.data.message)
+            }
+
+       
     } else {
-      alert("please fill all field....");
+        toast.error("All fields are mandtory.")
     }
-  };
+}
+
+
   return (
     <div className="Login">
       
