@@ -2,7 +2,6 @@ import axios from "axios";
 import React,{ createContext, useEffect, useReducer } from "react";
 
 export const AuthContext = createContext();
-
 const initialState = { user: null };
 
 const reducer = (state, action) => {
