@@ -10,6 +10,10 @@ import MultipleProduct from './Component/MultipleProduct';
 import SingleProduct from './Component/SingleProduct';
 import Profile from './Component/Profile';
 import Cart from './Component/Cart';
+import Allproducts from './Component/Comman/Allproducts';
+import AddProduct from './Component/Buyer/AddProduct';
+import YourProducts from './Component/Buyer/YourProducts';
+ 
 
 
       
@@ -29,7 +33,10 @@ function App() {
       <Route exact path='/'element={<Home/>}/>
       <Route exact path='/cart'element={<Cart/>}/>
       <Route exact path='/profile'element={<Profile/>}/>
-      
+      <Route exact path='/all-products' element={<Allproducts/>}/> 
+      <Route exact path='/add-product' element={<AddProduct/>} />
+      <Route exact path='/your-product' element={<YourProducts/>}/>
+
     </Routes>
     <Footer/>
    

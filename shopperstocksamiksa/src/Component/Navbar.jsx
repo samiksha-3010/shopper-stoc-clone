@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const router = useNavigate();
-
   return (
     <div className="navbar">
       <div className="store-txt">
@@ -26,6 +25,7 @@ const Navbar = () => {
           class="fa-solid fa-user fa-xl"
         ></i>
         <i  onClick={() => router("/cart")}class="fa-solid fa-bag-shopping fa-xl"></i>
+        <p>Logout</p>
       </div>
     </div>
   );
