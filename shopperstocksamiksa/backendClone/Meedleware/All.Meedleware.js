@@ -2,6 +2,8 @@
 import jwt from "jsonwebtoken";
 import User from "../modal/UserModals.js";
 
+
+
 export const checkSeller = async (req, res, next) => {
     try {
         const { token } = req.body;

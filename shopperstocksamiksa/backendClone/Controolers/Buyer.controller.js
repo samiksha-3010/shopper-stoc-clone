@@ -1,5 +1,7 @@
 
-
+import UserModals from "../Modals/User.Modals.js";
+import ProductModal from "../modal/Product.Modal.js";
+import jwt from "jsonwebtoken";
 
 export const addWishlist = async (req, res) => {
     try {
@@ -59,7 +61,7 @@ export  const removeCartProduct  = async (req, res) =>{
         const decodedData = jwt.verify(token,process.env.JWT_SECRET);
         const userId = decodedData.userId;
 
-        const user= await  User.findById({_id:userId})
+        const user= await  UserModals.findById({_id:userId})
         const cart = user?.cart
 
         const  removeCartProductProductId = cart.indexOf(productId)
@@ -74,9 +76,7 @@ export  const removeCartProduct  = async (req, res) =>{
  }
 
 
- import ProductModal from "../modal/Product.Modal.js";
-import User from "../modal/User.js";
-import jwt from "jsonwebtoken";
+
 
 export const addCart = async (req, res) => {
     try {
@@ -86,7 +86,7 @@ export const addCart = async (req, res) => {
         const decodedData = jwt.verify(token, process.env.JWT_SECRET);
         const userId = decodedData?.userId;
 
-        const user = await User.findById({ _id: userId })
+        const user = await UserModals.findById({ _id: userId })
 
         user?.cart.push(productId);
 
@@ -105,7 +105,7 @@ export const getCartProducts = async (req, res) => {
         const decodedData = jwt.verify(token, process.env.JWT_SECRET);
         const userId = decodedData?.userId;
 
-        const user = await User.findById(userId)
+        const user = await UserModals.findById(userId)
 
 
         if (user) {
