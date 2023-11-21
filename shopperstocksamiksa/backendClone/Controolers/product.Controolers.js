@@ -1,11 +1,11 @@
-import ProductModal from "./../modal/Product.Modal.js";
 import jwt from "jsonwebtoken";
-import User from "../modal/UserModals.js";
+import ProductModal from "../Modals/Product.Modal.js";
+import UserModals from "../Modals/User.Modals.js";
 
 export const addProduct = async (req, res) => {
     // console.log(fulltoken,"fulltoken")
     try {
-        const { name, price, image, category } = req.body.productData;
+        const { name, price, image, category } = req.body //.productData;
         const{token} = req.body
         if (!name || !price || !image || !category || !token) return res.status(404).json({success: false, message: "All fields are mandtory.." })
 
@@ -153,7 +153,7 @@ export const addComments = async (req,res) =>{
         }
 
         const userId = decodedData.userId
-        const user = await User.findById(userId)
+        const user = await UserModals.findById(userId)
            
         const updatedProductComents = await ProductModal.findByIdAndUpdate(productId, { $push: { Comments: {Comments:comments,name:user.name} } }, { new: true })
 
@@ -197,7 +197,7 @@ export const addToCart = async (req, res) => {
         if (!userId) return res.status(404).json({ success: false, message: "Usur id is mandtory.." })
       
 
-        const user = await User.findByIdAndUpdate(userId, { $push: { cart: productId } })
+        const user = await UserModals.findByIdAndUpdate(userId, { $push: { cart: productId } })
         if (!user) return res.status(404).json({ success: false, message: "User not found.." })
 
 
@@ -214,7 +214,7 @@ export const allCartProducts = async (req, res) => {
         const { userId } = req.body;
         if (!userId) return res.status(404).json({ success: false, message: "User id is mandtory.." })
 
-        const user = await User.findById(userId)
+        const user = await UserModals.findById(userId)
         if (!user) return res.status(404).json({ success: false, message: "User not found.." })
         var finalData = [];
         var array = user?.cart;

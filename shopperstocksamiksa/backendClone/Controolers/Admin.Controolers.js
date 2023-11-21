@@ -1,13 +1,15 @@
-import ProductModal from "../modal/Product.Modal.js";
-import User from "../modal/User.js";
+
+
 import jwt from "jsonwebtoken";
+import UserModals from "../Modals/User.Modals.js";
+import ProductModal from "../Modals/Product.Modal.js";
 
 
 export const blockUser = async (req, res) => {
     try {
         const { userId } = req.body;
 
-        const user = await User.findByIdAndUpdate(userId, { isBlocked: true }, { new: true });
+        const user = await UserModals.findByIdAndUpdate(userId, { isBlocked: true }, { new: true });
 
         if (user) {
             return res.status(200).json({ success: true, message: "User bloacked Successfully", user: user })
@@ -24,7 +26,7 @@ export const unBlockUser = async (req, res) => {
     try {
         const { userId } = req.body;
 
-        const user = await User.findByIdAndUpdate(userId, { isBlocked: false }, { new: true });
+        const user = await UserModals.findByIdAndUpdate(userId, { isBlocked: false }, { new: true });
 
         if (user) {
             return res.status(200).json({ success: true, message: "User unbloacked Successfully.", user: user })
@@ -91,7 +93,7 @@ if (!decodedData) {
 
 const userId = decodedData.userId;
 
-const user = await UserModal.findById(userId);
+const user = await UserModals.findById(userId);
 
 if (!user) {
     return res.status(404).json({ message: "User not valid.", status: "error" })
@@ -137,7 +139,7 @@ export const getAllBuyers = async (req,res) =>{
 // 4
         const userId = decodedData.userId;
 
-        const yourProducts = await User.find({ role:"Buyer" })
+        const yourProducts = await UserModals.find({ role:"Buyer" })
 
         // console.log( )
 
@@ -170,7 +172,7 @@ export const getAllSellers = async (req,res) =>{
 4
     const userId = decodedData.userId;
 
-    const yourProducts = await User.find({role:"Seller"})
+    const yourProducts = await UserModals.find({role:"Seller"})
 
     // console.log( )
 

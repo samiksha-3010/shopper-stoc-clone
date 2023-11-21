@@ -1,6 +1,6 @@
 
 import jwt from "jsonwebtoken";
-import User from "../modal/UserModals.js";
+import UserModals from "../Modals/User.Modals.js";
 
 
 
@@ -17,7 +17,7 @@ export const checkSeller = async (req, res, next) => {
 
         const userId = decodedData.userId;
 
-        const user = await User.findById(userId)
+        const user = await UserModals.findById(userId)
 
         if (!user || user?.role != "Seller") {
             return res.status(404).json({success: false, message: "User not valid to add product from middleware." })
@@ -39,7 +39,7 @@ export const isAdmin =async (req,res,next) =>{
     }
     const userId = decodedData.userId;
 
-    const user = await User.findById(userId);
+    const user = await UserModals.findById(userId);
 
     if(!user || user?.role != "Admin"){
         
@@ -65,7 +65,7 @@ export const isValidUser = async (req, res, next) => {
 
         const userId = decodedData.userId;
 
-        const user = await User.findById(userId);
+        const user = await UserModals.findById(userId);
 
         if (!user) {
             return res.status(404).json({ message: "User not valid.", status: "error" })

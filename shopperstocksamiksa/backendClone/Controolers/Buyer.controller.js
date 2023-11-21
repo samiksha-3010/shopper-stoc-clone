@@ -1,6 +1,6 @@
 
 import UserModals from "../Modals/User.Modals.js";
-import ProductModal from "../modal/Product.Modal.js";
+import ProductModal from "../Modals/Product.Modal.js";
 import jwt from "jsonwebtoken";
 
 export const addWishlist = async (req, res) => {
@@ -11,7 +11,7 @@ export const addWishlist = async (req, res) => {
         const decodedData = jwt.verify(token, process.env.JWT_SECRET);
         const userId = decodedData?.userId;
 
-        const user = await User.findById({ _id: userId })
+        const user = await UserModals.findById({ _id: userId })
 
         user?.wishlist.push(productId);
 
@@ -23,9 +23,6 @@ export const addWishlist = async (req, res) => {
         return res.status(500).json({ status: "error", message: error })
     }
 }
-
-
-
 export const getWishlistProducts = async (req, res) => {
     try {
         const { token } = req.body;
@@ -33,7 +30,7 @@ export const getWishlistProducts = async (req, res) => {
         const decodedData = jwt.verify(token, process.env.JWT_SECRET);
         const userId = decodedData?.userId;
 
-        const user = await User.findById(userId)
+        const user = await UserModals.findById(userId)
         if (user) {
             var finalData = [];
             for (var i = 0; i < user.wishlist.length; i++) {
@@ -68,7 +65,7 @@ export  const removeCartProduct  = async (req, res) =>{
         cart.splice( removeCartProductProductId, 1)
 
         await user.save()
-        return res.status(200).json({success: true, user: User })
+        return res.status(200).json({success: true, user: UserModals })
     }catch (error) {
     
             return res.status(500).json({status:error, message: error.message})
@@ -125,6 +122,10 @@ export const getCartProducts = async (req, res) => {
         return res.status(500).json({ status: "error", message: error })
     }
 }
+
+
+
+ 
 
 
 
