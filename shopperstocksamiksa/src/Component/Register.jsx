@@ -9,7 +9,7 @@ const Register = () => {
     const router = useNavigate ()
     const handleChenge = (event)=>{
     setUserData({... userData,[event.target.name]: event.target.value});
-    console.log(userData,"-setUserData")
+    // console.log(userData,"-setUserData")
     }
 
     function selectRole (event){
@@ -43,7 +43,7 @@ const Register = () => {
           if (userData.password === userData.ConfirmPassword) {
               const response = await axios.post("http://localhost:8000/register", { userData });
               if (response.data.success) {
-                  setUserData({ name: "", email: "", password: "", confirmpassword: "", role: "Buyer" })
+                  setUserData({ name: "", email: "", password: "", ConfirmPassword: "", role: "Buyer" })
                   router('/login')
                   toast.success(response.data.message)
               } else {
@@ -68,7 +68,7 @@ const Register = () => {
         <form onSubmit={ handleSubmit}>
             <lable>Name</lable><br/>
             <input value={userData.name} type= 'text'name='name' onChange={handleChenge}/><br/>
-            <select onChange={selectRole }>
+            <select onChange={selectRole} value={userData.role}>
               <lable>Role</lable><br/>
               <option >Buyer</option>
               <option>Seller</option>+
@@ -78,7 +78,7 @@ const Register = () => {
             <lable>Password</lable><br/>
             <input value={userData.password} type='password'name='password' onChange={handleChenge}/><br/>
             <lable>Password</lable><br/>
-            <input value={userData.ConfirmPassword} type='password'name='pConfirmPassword' onChange={handleChenge}/><br/>
+            <input value={userData.ConfirmPassword} type='password'name='ConfirmPassword' onChange={handleChenge}/><br/>
           <div className='submit'>  <input type='submit' value= 'Register'/></div>
 
         </form>
@@ -91,7 +91,7 @@ const Register = () => {
         </div>
             <div className='sign-up'><p>By signing up you agree to our Terms of <span>Service & Privacy Policy</span></p></div>
 
-     
+
     </div>
   )
 }

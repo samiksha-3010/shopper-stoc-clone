@@ -4,15 +4,15 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
-import {AuthContext} from "./Component/Context/Auth.Context";
 import { Toaster } from "react-hot-toast";
+import AuthProvider from "./Component/Context/Auth.Context";
 
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <AuthContext>
+    <AuthProvider>
       <BrowserRouter>
         <App />
         <Toaster
@@ -42,7 +42,7 @@ root.render(
 />
 
       </BrowserRouter>
-    </AuthContext>
+    </AuthProvider>
   </React.StrictMode>
 );
 

@@ -14,11 +14,6 @@ import Allproducts from './Component/Comman/Allproducts';
 import AddProduct from './Component/Buyer/AddProduct';
 import YourProducts from './Component/Buyer/YourProducts';
  
-
-
-      
-
-
 function App() {
 
   return (

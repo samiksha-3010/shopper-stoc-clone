@@ -22,15 +22,20 @@ body {
     width: 80%;
     margin: auto;
     /* border: 1px solid black; */
-    height: 60px;
+    height: 30px;
     display: flex;
     justify-content: space-around;
+}
+.cATEGORIES-brand>h4:hover{
+    border-bottom: 3px solid black;
+
 }
 .image-first{
     width: 85%;
     border: 1px solid black;
     height: 130px;
     margin: auto;
+    margin-top: 10px;
 }
 .image-first>img{
     width: 100%;

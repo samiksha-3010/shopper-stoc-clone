@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "./Context/Auth.Context";
 
 const Navbar = () => {
+  const {state, dispatch} = useContext(AuthContext);
+
+
+
+
   const router = useNavigate();
   return (
     <div className="navbar">
@@ -25,7 +31,8 @@ const Navbar = () => {
           class="fa-solid fa-user fa-xl"
         ></i>
         <i  onClick={() => router("/cart")}class="fa-solid fa-bag-shopping fa-xl"></i>
-        <p>Logout</p>
+        <h4 onClick={() => dispatch({ type: "LOGOUT" })}>Logout</h4>
+
       </div>
     </div>
   );

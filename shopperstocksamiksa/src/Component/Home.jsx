@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Home.css'
 import { useNavigate } from 'react-router-dom'
 
@@ -6,6 +6,16 @@ import { useNavigate } from 'react-router-dom'
 const Home = () => {
 
 const router = useNavigate();
+
+const [display, setdisplay] = useState(false);
+
+const dropDown = () => {
+  setdisplay(true);
+};
+
+const dropUp = () => {
+  setdisplay(false);
+};
 
 
   return (
@@ -26,6 +36,102 @@ const router = useNavigate();
         <h4>Gifts</h4>
         <h4>Brand</h4>
       </div>
+
+
+      {display ? (
+        <div id="mensdrop" onMouseLeave={dropUp}>
+          <div>
+            <p>
+              <b>Clothing</b>
+            </p>
+            <p>Footwear</p>
+            <p>Watches</p>
+            <p>Fragrances</p>
+            <p>Grooming for men</p>
+            <p>Sunglasses and frames</p>
+            <p>Accessories</p>
+            <p>Jewellery</p>
+          </div>
+          <div>
+            <p>
+              <b>All Clothing</b>
+            </p>
+            <p>
+              <b>T-Shirts & Polos</b>
+            </p>
+            <p>
+              <b>Shirts</b>
+            </p>
+            <p>All Shirts</p>
+            <p>Casual</p>
+            <p>Formal</p>
+            <p>
+              <b>Jeans</b>
+            </p>
+            <p>
+              <b>Trousers</b>
+            </p>
+            <p>All Trousers</p>
+            <p>Casual</p>
+            <p>Formal</p>
+            <p>
+              <b>Shorts</b>
+            </p>
+            <p>
+              <b>Sports & Activewear</b>
+            </p>
+            <p>All Sports & Activewear</p>
+            <p>Tshirts</p>
+            <p>Joggers & Track Pants</p>
+          </div>
+          <div>
+            <p>
+              <b>Suits & Blazers</b>
+            </p>
+            <p>
+              <b>Casual Jackets</b>
+            </p>
+            <p>
+              <b>Ethnicwear</b>
+            </p>
+            <p>Kurtas</p>
+            <p>Kurta Sets</p>
+            <p>Nehru Jackets</p>
+            <p>
+              <b>Winterwear</b>
+            </p>
+            <p>All Winterwear</p>
+            <p>Sweatshirts</p>
+            <p>Sweaters</p>
+            <p>Jackets</p>
+            <p>
+              <b>Mask</b>
+            </p>
+            <p>
+              <b>Personal Protection Equipment</b>
+            </p>
+          </div>
+          <div>
+            <p>
+              <b>Accessories</b>
+            </p>
+            <p>All Accessories</p>
+            <p>Ties Cufflinks & Pocket Squares</p>
+            <p>Caps & Hats</p>
+            <p>Socks</p>
+            <p>Handkerchief</p>
+            <p>
+              <b>Innerwear & Nightwear</b>
+            </p>
+            <p>All Innerwear & Nightwear</p>
+            <p>Briefs & Trunks</p>
+            <p>Boxers</p>
+            <p>Vests</p>
+            <p>Nightwear & Loungewear</p>
+            <p>Thermals</p>
+          </div>
+        </div>
+      ) : null}
      
       <div className='image-first'>
         <img src='https://sslimages.shoppersstop.com/sys-master/root/h47/hda/30416999219230/Strip-Banner-Web--2023-07--17-new-hp-page-flat50.jpg'/>

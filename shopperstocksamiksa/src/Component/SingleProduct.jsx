@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './SingleProduct.css'
-import {  useParams } from 'react-router-dom'
+import {  Router, useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import toast from 'react-hot-toast'
+import { AuthContext } from './Context/Auth.Context'
 
 
 const SingleProduct = () => {
@@ -12,6 +15,7 @@ const SingleProduct = () => {
   const [SingleProduct,setsingleproduct] = useState({})
   const { id } = useParams();
   const router =(useNavigate)();
+  const {state} = useContext(AuthContext)
   // console.log(products,"-setproducts")
   useEffect (() =>{
     fetch('https://fakestoreapi.com/products')
@@ -39,21 +43,37 @@ const SingleProduct = () => {
     }
   },[])
   
-    function addCart(){
-
-      if(setIsUserLoggedIn){
-        const user = JSON.parse(localStorage.getItem("User"))
-        for(var i=0; i < user.length; i++ ){
-          user[i].cart.push(SingleProduct);
-          localStorage.setItem("User",JSON.stringify(user));
-          break;
-        
-      }
-      alert("Product add to sucessfully cart...")
-    } else {
-      alert ("you can not add product before login")
+  async function addCart(productId) {
+    console.log(productId, "singleProductData")
+    try {
+        const response = await axios.post('http://localhost:8000/add-to-cart', { productId, userId: state?.user?._id });
+        console.log(response.data,"gfdfdf")
+        if (response.data.success) {
+            console.log(response.data.success,"gfdfdbnnvvf")
+            setsingleproduct(response.data.products)
+           
+            toast.success("Product added successfully to cart.")
+            Router("/cart")
+        }
+    } catch (error) {
+        toast.error("Internal server error, please try again...")
     }
 }
+  
+//     function addCart(){
+
+//       if(setIsUserLoggedIn){
+//         const user = JSON.parse(localStorage.getItem("User"))
+//         for(var i=0; i < user.length; i++ ){
+//           user[i].cart.push(SingleProduct);
+//           localStorage.setItem("User",JSON.stringify(user));
+//           break;
+//       }
+//       alert("Product add to sucessfully cart...")
+//     } else {
+//       alert ("you can not add product before login")
+//     }
+// }
   return (
     <div className='first-div' key={id}>
     <div className='second-div'>
@@ -69,7 +89,7 @@ const SingleProduct = () => {
      <p>Size ( 5+ Available )</p>
      <div></div>
      <button onClick={addCart}>Add to cart</button>
-     {/* <button>Add to cart</button> */}
+     
      </div>
      <div className='div'>7 days easy return and exchange applicable for this item</div>
    
