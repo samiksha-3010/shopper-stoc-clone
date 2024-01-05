@@ -78,12 +78,12 @@ export  const removeCartProduct  = async (req, res) =>{
 export const addCart = async (req, res) => {
     try {
         const { token, productId } = req.body;
-        if (!token || !productId) throw new Error("Token and product id is requir.")
+        if (!token || !productId) throw new Error("Token and Product id is required.")
 
         const decodedData = jwt.verify(token, process.env.JWT_SECRET);
         const userId = decodedData?.userId;
 
-        const user = await UserModals.findById({ _id: userId })
+        const user = await UserModal.findById({ _id: userId })
 
         user?.cart.push(productId);
 
@@ -92,7 +92,7 @@ export const addCart = async (req, res) => {
         return res.status(200).json({ success: true, user: user })
 
     } catch (error) {
-        return res.status(500).json({ status: "error", message: error.message })
+        return res.status(500).json({ status: "error", message: error })
     }
 }
 export const getCartProducts = async (req, res) => {

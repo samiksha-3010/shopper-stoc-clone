@@ -13,6 +13,7 @@ import Cart from './Component/Cart';
 import Allproducts from './Component/Comman/Allproducts';
 import AddProduct from './Component/Buyer/AddProduct';
 import YourProducts from './Component/Buyer/YourProducts';
+import PaginationExample from './Component/PaginationExample';
  
 function App() {
 
@@ -31,6 +32,8 @@ function App() {
       <Route exact path='/all-products' element={<Allproducts/>}/> 
       <Route exact path='/add-product' element={<AddProduct/>} />
       <Route exact path='/your-product' element={<YourProducts/>}/>
+      <Route exact path='/PaginationExample' element={<PaginationExample/>}/>
+
 
     </Routes>
     <Footer/>

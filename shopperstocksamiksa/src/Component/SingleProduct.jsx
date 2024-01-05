@@ -43,37 +43,38 @@ const SingleProduct = () => {
     }
   },[])
   
-  async function addCart(productId) {
-    console.log(productId, "singleProductData")
-    try {
-        const response = await axios.post('http://localhost:8000/add-to-cart', { productId, userId: state?.user?._id });
-        console.log(response.data,"gfdfdf")
-        if (response.data.success) {
-            console.log(response.data.success,"gfdfdbnnvvf")
-            setsingleproduct(response.data.products)
+//   async function addCart(productId) {
+//     console.log(productId, "singleProductData")
+//     try {
+//         const response = await axios.post('http://localhost:8000/add-cart', { productId, userId: state?.user?._id });
+//         console.log(response.data,"gfdfdf")
+//         if (response.data.success) {
+//             console.log(response.data.success,"gfdfdbnnvvf")
+//             setsingleproduct(response.data.products)
            
-            toast.success("Product added successfully to cart.")
-            Router("/cart")
-        }
-    } catch (error) {
-        toast.error("Internal server error, please try again...")
-    }
-}
-  
-//     function addCart(){
-
-//       if(setIsUserLoggedIn){
-//         const user = JSON.parse(localStorage.getItem("User"))
-//         for(var i=0; i < user.length; i++ ){
-//           user[i].cart.push(SingleProduct);
-//           localStorage.setItem("User",JSON.stringify(user));
-//           break;
-//       }
-//       alert("Product add to sucessfully cart...")
-//     } else {
-//       alert ("you can not add product before login")
+//             toast.success("Product added successfully to cart.")
+//             Router("/cart")
+//         }
+//     } catch (error) {
+//         toast.error("Internal server error, please try again...")
 //     }
 // }
+  
+    function addCart(){
+
+      if(setIsUserLoggedIn){
+        const user = JSON.parse(localStorage.getItem("User"))
+        for(var i=0; i < SingleProduct.length; i++ ){
+          user[i].cart.push(SingleProduct);
+          localStorage.setItem("User",JSON.stringify(user));
+          break;
+      }
+      toast.success("Product add to sucessfully cart...")
+      router("/cart")
+    } else {
+      toast.error ("you can not add product before login")
+    }
+}
   return (
     <div className='first-div' key={id}>
     <div className='second-div'>

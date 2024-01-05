@@ -6,8 +6,9 @@ import { useNavigate } from 'react-router-dom'
 const Home = () => {
 
 const router = useNavigate();
-
 const [display, setdisplay] = useState(false);
+
+
 
 const dropDown = () => {
   setdisplay(true);
@@ -16,6 +17,7 @@ const dropDown = () => {
 const dropUp = () => {
   setdisplay(false);
 };
+
 
 
   return (

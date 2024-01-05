@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
 import cors from "cors"
-import  { Login, Register, getCurrentUser } from './Controolers/User.Controolers.js';
+import  { Login, Register, checkOut, getCurrentUser } from './Controolers/User.Controolers.js';
 import { addCart, addWishlist, getCartProducts, getWishlistProducts, removeCartProduct } from './Controolers/Buyer.controller.js';
 import { addProduct, addToCart, allCartProducts, allProducts, deleteYourProduct, getSingleProductData, getYourProducts, updateYourProduct } from './Controolers/product.Controolers.js';
 import { checkSeller, isAdmin, isValidUser } from './Meedleware/All.Meedleware.js';
@@ -46,7 +46,7 @@ app.post("/delete-your-product",checkSeller, deleteYourProduct);
 
 app.patch("/block-user", isAdmin, blockUser);
 // app.post("/remove-cart-items", removeCartProduct );
-// app.post("/checkout", checkOut);
+app.post("/checkout", checkOut);
 app.patch("/un-block-user", isAdmin, unBlockUser);
 // app.patch("/block-product", isAdmin, blockProduct);
 // app.patch("/un-block-product", isAdmin, unBlockProduct );
